@@ -181,12 +181,15 @@ def contact_info():
 
 	if st.button('- LinkedIn'):
 		wb.open(user.linkedin, new = 0, autoraise = True)
+		st.text('If button fails to launch new tab: '+ user.linkedin)
 
 	if st.button('- GitHub'):
 		wb.open(user.github, new = 0, autoraise = True)
+		st.text('If button fails to launch new tab: '+ user.github)
 
 	if st.button('- Twitter'):
 		wb.open(user.twitter, new = 0, autoraise = True)
+		st.text('If button fails to launch new tab: '+ user.twitter)
 	st.write('________')
 # -------------------------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
