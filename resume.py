@@ -358,6 +358,7 @@ def sign_off():
 	st.title(''); st.title(''); st.title('')
 	st.text('Created by: Brayton Sanders')
 	st.text(datetime.today().strftime('%A - %B %d, %Y'))
+	st.write('________')
 # -------------------------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 # headshot.jpeg
@@ -368,14 +369,16 @@ def main():
 	st.text('Engineer-In-Training (EIT)')
 	st.text('MBA, Mechanical Engineering, Economics'); st.subheader('')
 	st.image(Image.open('pics/headshot.jpeg'))
-	st.write('________'); st.write('________')
-
+	st.write('')
+	st.image(Image.open('pics/dividor1.png'))
 	st.subheader('Profile:')
 	st.write(profile)
 	st.write('Please browse the sections below. Enjoy!')
+	st.write('')
+	st.image(Image.open('pics/dividor1.png'))
+	st.title('')
 
 
-	st.write('________'); st.write('________')
 
 	if st.checkbox('Contact Information'):
 		contact_info()
@@ -396,7 +399,9 @@ def main():
 		show_skills(skills)
 	if st.checkbox('View personal Interests'):
 		show_personal(personal_interests)
-	st.write('________')
+
+	st.title('')
+	st.image(Image.open('pics/dividor1.png'))
 
 	sign_off()
 
