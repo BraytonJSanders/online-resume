@@ -63,8 +63,8 @@ class Education:
 
 references_list = [Reference('Dr. Ben Cook', 'University of Wyoming', 'Director of UW MBA Program', 'Current Supervisor', '2', 'bencook@uwyo.edu'), 
 				Reference('Kyle Tynsky', 'Saulsbury Industries', 'Sr. Director of Supply Chain & Procurement', 'Former Supervisor', '5+', 'ktynsky@saulsbury.com'),
-				Reference('Larry Weatherfod', 'University of Wyoming', 'Scarlett Chair and Professor of Decision Science', 'Professor will earning my MBA', '2', 'lrw@uwyo.edu'),
-				Reference('Sean Sullivan', 'Elkhorn Construction', 'CEO (Retired)', 'Work for Sean during 2 summer internships', '6+', 'ssullivan@eheci.com')]
+				Reference('Larry Weatherford', 'University of Wyoming', 'Scarlett Chair and Professor of Decision Science', 'Professor will earning my MBA', '2', 'lrw@uwyo.edu'),
+				Reference('Sean Sullivan', 'Elkhorn Construction', 'CEO (Retired)', 'Worked for Sean during 2 summer internships', '6+', 'ssullivan@eheci.com')]
 
 previous_employers = [Company('Graduate Research Assistant', 'Higher Education', 'August 2018', 'Currect', 'University of Wyoming', '1000 E University Ave', 'Laramie', 'Wyoming', 82071, '(307) 766-112', 'Dr. Ben Cook'),
 						Company('Cost Estimator / Field Engineer', 'Heavy Industrial Construction', 'May 2017', 'June 2018','Saulsbury Industries', '3010 Lyndon B Johnson Fwy #1100', 'Dallas', 'Texas', 75234, '(972) 884-6000', 'Kyle Tynsky')]
@@ -196,10 +196,11 @@ def contact_info():
 
 @st.cache
 def life_timeline_df(current):
+
 	time_frame = []
-	for month in np.arange(2009.0 + (8/12), current + (1/12), (1/12)):
-		month_i = str(int(round((month % 1)*12)))
-		year_i = str(month)[:4] if str(month)[5:7] != '99' else str(int(str(month)[:4])+1)
+	for mon in np.arange(2009.0 + (8/12), current + (1/12), (1/12)):
+		month_i = str(int(round((mon % 1)*12)))
+		year_i = str(mon)[:4] if str(mon)[5:7] != '99' else str(int(str(mon)[:4])+1)
 		time_frame.append(datetime.strptime(month_i + ' ' + year_i, '%m %Y').strftime('%B %Y'))
 
 	what_doing = pd.DataFrame(np.zeros((len(time_frame), 2)), index = [time_frame], columns = ['What Doing', 'Picture'])
@@ -378,26 +379,24 @@ def main():
 	st.image(Image.open('pics/dividor1.png'))
 	st.title('')
 
-
-
 	if st.checkbox('Contact Information'):
 		contact_info()
 
-	if st.checkbox('View Education'):
+	if st.checkbox('Education'):
 		show_education(schools_list)
 
-	if st.checkbox('View Employment History'):
+	if st.checkbox('Employment History'):
 		employment_history(previous_employers, job_responsibilities)
 
-	if st.checkbox('View My References'):
+	if st.checkbox('References'):
 		show_references(references_list)
 
-	if st.checkbox('View Life Timeline'):
+	if st.checkbox('Life Timeline'):
 		life_timeline()
 
-	if st.checkbox('View Skills and Knowledge'):
+	if st.checkbox('Skills and Knowledge'):
 		show_skills(skills)
-	if st.checkbox('View personal Interests'):
+	if st.checkbox('Personal Interests'):
 		show_personal(personal_interests)
 
 	st.title('')
